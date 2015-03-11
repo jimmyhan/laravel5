@@ -6,17 +6,32 @@
 [![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+The Laravel 5 starter website.
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Installation
 
-## Official Documentation
+1.composer create-project laravel/laravel --prefer-dist laravel5
+clone a local copy to the folder "laravel5".
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+2.create a new repository "laravel5" and upload the project to github
 
-## Contributing
+## configuration
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+1.config/app.php: 'timezone' => 'America/Vancouver'
+
+2.setting local database
+(1)create a new "local" folder under the config
+(2)copy database.php from config to local
+(3)update DB connection information (server/database/username/password)
+
+### tables migration and try authentication
+
+1.create a new database (i.g. laravel5)
+2.initialize migration table: artisan migrate:install (generated migrations table)
+3.migrate tables: artisan migrate (generated users, password_resets tables)
+4.try http://laravel5/home
+5.click Register in page http://laravel5/auth/login
+6.a new record will be added to users after created a new account
 
 ### License
 
