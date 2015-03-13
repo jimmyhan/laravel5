@@ -8,14 +8,14 @@
 
 The Laravel 5 starter website.
 
-## Installation
+### Installation
 
 1.composer create-project laravel/laravel --prefer-dist laravel5
 clone a local copy to the folder "laravel5".
 
 2.create a new repository "laravel5" and upload the project to github
 
-## configuration
+### configuration
 
 1.config/app.php: 'timezone' => 'America/Vancouver'
 
@@ -32,6 +32,22 @@ clone a local copy to the folder "laravel5".
 4.try http://laravel5/home
 5.click Register in page http://laravel5/auth/login
 6.a new record will be added to users after created a new account
+
+### work with angular
+
+1.create a new indexOfAngular.php in resources\views
+2.add a new route in app\Http\routes.php, and remove other unused lines:
+Route::get('/', function() { return View::make('indexOfAngular'); });
+3.to catch all route, add few lines in app\Exceptions\handler.php:
+	public function render($request, Exception $e)
+	{
+		if($e instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException)
+		{
+			return response()->view('indexOfAngular')->header('Content-Type', 'text/html');
+		}
+		return parent::render($request, $e);
+	}
+4.add all angular app related files under public\app
 
 ### License
 
